@@ -209,6 +209,7 @@ padding-bottom: 0;
             display: flex;
             justify-content: space-between;
             padding-top: 32px;
+            padding-bottom: 32px;
 
             .copyright{
                 display: flex;
@@ -225,6 +226,9 @@ padding-bottom: 0;
                 color: #c7c7c7;
                 position: relative;
                 cursor: pointer;
+                display: flex;
+                 align-content: center;
+                align-items: center;
                 img{
                     fill:  #c7c7c7;
                     opacity: 0.5;
