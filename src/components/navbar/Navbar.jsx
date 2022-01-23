@@ -14,14 +14,14 @@ const Navbar = () => {
             <div className="links">
                 <ul>
                     <li><a href="#BigTransfer" data-link-alt="Big Transfer"><span>Big Transfer</span></a></li>
-                    <li><a href="Processes" data-link-alt="Processes"><span>Processes</span></a></li>
-                    <li><a href="Benefits" data-link-alt="Benefits"><span>Benefits</span></a></li>
-                    <li><a href="Personal" data-link-alt="Personal"><span>Personal</span></a></li>
+                    <li><a href="#Processes" data-link-alt="Processes"><span>Processes</span></a></li>
+                    <li><a href="#Benefits" data-link-alt="Benefits"><span>Benefits</span></a></li>
+                    <li><a href="#Personal" data-link-alt="Personal"><span>Personal</span></a></li>
                 </ul>
             </div>
             <div className="buttons">
                 <a className='LogoutBtn' href='#a'><img src={LogoutLogo} alt="Logout" /></a>
-                <a href='#sign-up'>Sign Up</a>
+                <a className='btn-primary' href='#sign-up'>Sign Up</a>
             </div>
         </Appbar>
     );
@@ -142,7 +142,12 @@ const Appbar = styled.nav`
         color: white;
         padding:19px 35px;
         border:1px solid #b2b7bd;
-        border-radius:10px
+        border-radius:10px;
+        transition: all ease 0.2s;
+
+        &:hover{
+            border-color: white;
+        }
 
     }
     a.LogoutBtn{
@@ -160,6 +165,10 @@ const Appbar = styled.nav`
     }
 }
 
+
+.btn-primary{
+    bor
+}
 
 `
 

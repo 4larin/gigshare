@@ -6,6 +6,7 @@ import FineGirl from '../../assets/fine_girl.png'
 import Col1 from '../../assets/period stats 1.svg'
 import Col2 from '../../assets/period stats 2.svg'
 import Col3 from '../../assets/period stats 3.svg'
+import BarsLine from '../../assets/Bars Line.svg'
 
 const Personal = () => {
     return (
@@ -38,7 +39,11 @@ const Personal = () => {
                         In Gig Share, you can work directly with the leading communication platforms - Slack and Zoom. Now you can have a brief meeting with your colleagues or even a video conference with just a couple of mouse clicks.
                     </p>
                     <div className="footer">
-                        <a className="btn" href="#a">Get Started</a>
+                        <a className="btn" href="#a" >
+                            <div>
+                                <span data-link-alt="Get Started"> Get Started</span>
+                            </div>
+                        </a>
                         <a className="btn-secondary" style={{ marginLeft: '10px' }} href="#a">Learn more <span ><img src={Arrow} alt="arrow" /></span> </a>
                     </div>
                 </div>
@@ -49,8 +54,9 @@ const Personal = () => {
 
 
 const Section = styled.section`
+box-sizing: border-box;
 margin: 0 auto;
-padding: 64px 0;
+padding: 80px 0;
     .body{
         display: flex;
         gap: 80px;
@@ -82,11 +88,62 @@ padding: 64px 0;
                 background-color: #4c4e8e;
                 display: block;
                 width: fit-content;
+                position: relative;
+                overflow: hidden;
+
+                div{
+                    width: 100%;
+                    height: 21px;
+                    overflow: hidden;
+                    span{
+                        transform: translateY(0);
+                        transition: all ease 0.2s;
+                        position: relative;
+                        &::after{
+                            content: attr(data-link-alt);
+                            position: absolute;
+                            top: -30px;
+                            left: 0;
+                        }
+
+                    }
+
+                }
+
+                &:hover{
+                    div{
+                    overflow: hidden;
+
+                    span{
+                        transform: translateY(32px);
+
+                    }
+
+                }
+
+                }
+
+
+                
             }
             a.btn-secondary{
                 color:#0a033c ;
                 padding-left:  0;
                 padding-right:  0;
+                transition: all ease 0.3s;
+
+                span{
+                    transform: translateX(6px);
+                    display: inline-block;
+                    transition: all ease 0.3s;
+                }
+
+                &:hover{
+                    span{
+                    transform: translateX(12px);
+
+                }
+                }
             }
             .footer{
                 display: flex;
@@ -158,12 +215,14 @@ const Card = styled.div`
     }
 
     .bars{
+        box-sizing: border-box;
         display: flex;
         flex-direction: row !important;
         gap: 15px !important;
         align-items: baseline;
         width: fit-content;
         justify-content: center;
+        background: url("${BarsLine}");
 
         img{
             width: 24px;

@@ -10,22 +10,31 @@ const Benefits = () => {
             <h1>Work even more effeciently with Gig Share</h1>
             <div className="benefit-cards">
                 <BCard>
-                    <div>
-                        <img src={FastSwitching} alt="Fast Switching" />
+                    <div className="benefit-cards-icon">
+                        <div>
+                            <img src={FastSwitching} alt="Fast Switching" />
+                            <img src={FastSwitching} alt="Fast Switching" />
+                        </div>
                     </div>
                     <h3 className="header">Fast switching <br /> between different tools </h3>
                     <p className="body">You can download documents in different file formats, import files to Evernote</p>
                 </BCard>
                 <BCard>
-                    <div>
-                        <img src={SendLargeFiles} alt="Send Large FIles" />
+                    <div className="benefit-cards-icon">
+                        <div>
+                            <img src={SendLargeFiles} alt="Send Large FIles" />
+                            <img src={SendLargeFiles} alt="Send Large FIles" />
+                        </div>
                     </div>
                     <h3 className="header">Sending<br />large files safely </h3>
                     <p className="body">Application lets users preview PDF documents on a range of devices and supports password protection</p>
                 </BCard>
                 <BCard>
-                    <div>
-                        <img src={MaterialsAvailable} alt="Make Materials Available" />
+                    <div className="benefit-cards-icon">
+                        <div>
+                            <img src={MaterialsAvailable} alt="Make Materials Available" />
+                            <img src={MaterialsAvailable} alt="Make Materials Available" />
+                        </div>
                     </div>
                     <h3 className="header">Make materials<br />available to loved ones </h3>
                     <p className="body">The app has improved support for popular PDF extensions such as Fill and Sign</p>
@@ -39,7 +48,8 @@ const Benefits = () => {
 const Section = styled.section`
 max-width: 1240px;
 margin: 0 auto;
-padding: 64px;
+padding: 80px 0;
+
     h1{
         text-align: center;
         max-width: 567px;
@@ -68,12 +78,35 @@ border-radius: 30px;
 display: flex;
 align-items: center;
 flex-direction: column;
+transition: all 0.5s ease-in;
+
+.benefit-cards-icon{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    width: 80px;
+}
+
+&:hover{
+    box-shadow: 0 55px 100px -6px rgb(65 70 78 / 10%);
+    img{
+        transform: translateY(-84px);
+    }
+}
+
 div{
     border-radius: 8px;
     background-color:#4c4e8e;
 }
 img{
-    margin: 22px;
+    margin: 16px;
+    overflow: hidden;
+    transform: translateX(0px);
+    transition: all 0.3s ease;
+    height: 48px;
+    width: 48px;
+
 }
 
 p{

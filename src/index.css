@@ -39,6 +39,8 @@ h1 {
 
 h3, p{
   font-family: 'soleil', sans-serif;
+  color: #0a033c;
+
 }
 
 ::-webkit-scrollbar {
@@ -51,4 +53,8 @@ h3, p{
 
 ::-webkit-scrollbar-thumb {
   background-color: #636C78;
+}
+
+area {
+  cursor: default !important;
 }
