@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Logo from '../../assets/logo.svg'
+import LogoutLogo from '../../assets/Logout button.svg'
 
 const Navbar = () => {
     return (
@@ -19,7 +20,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="buttons">
-                <button>Logout</button>
+                <a className='LogoutBtn' href='#a'><img src={LogoutLogo} alt="Logout" /></a>
                 <a href='#sign-up'>Sign Up</a>
             </div>
         </Appbar>
@@ -31,7 +32,8 @@ const Appbar = styled.nav`
     margin: 20px auto 0 auto;
     display: flex;
     justify-content: space-between;
-    zindex: 5;
+    z-index: 5;
+    align-items: center;
 .logo{
         a{
             display: flex;
@@ -141,6 +143,19 @@ const Appbar = styled.nav`
         padding:19px 35px;
         border:1px solid #b2b7bd;
         border-radius:10px
+
+    }
+    a.LogoutBtn{
+        border: none;
+        background-color: #8bb8a2;
+        padding: 20px 16px  ;
+        margin-right: 16px;
+            display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width: 20px;
+}
 
     }
 }

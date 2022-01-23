@@ -9,12 +9,10 @@ const BigTransfer = () => {
   return (
     <Section id="Big-Transfer">
       <Navbar />
-      <BackgroundElements>
-        <div className="shadow1 CenterLeft" />
-        <div className="shadow1 CenterRight" />
-        <div className="shadow1 BottomRight" />
-        <div className="shadow1 BottomLeft" />
-      </BackgroundElements>
+      <div className="shadow1 CenterLeft" />
+      <div className="shadow1 CenterRight" />
+      <div className="shadow1 BottomRight" />
+      <div className="shadow1 BottomLeft" />
       <HeroContent>
         <h1>Big transfers, <br /> bigger impact</h1>
         <p>The simplest way to send big ideas around the world, and discover new creative work while you’re at it.</p>
@@ -30,24 +28,15 @@ const BigTransfer = () => {
 const Section = styled.section`
     background-color: #636c78;
     height: calc(100vh - 40px);
-    margin: 20px 30px;
+    margin: 30px ;
     border-radius: 40px;
     padding: 40px;
     box-sizing: border-box !important;
     position: relative;
-`
+    min-height: 850px;
 
 
-const BackgroundElements = styled.div`
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-
-  .shadow1{
+  div.shadow1{
     box-shadow: 0 60px 60px -40px rgb(0 0 0 / 30%);
   }
 
@@ -124,7 +113,7 @@ const HeroContent = styled.div`
     color: white;
     text-align: center;
     max-width: 760px;
-    margin: 0 auto 32px auto;
+    margin: 0 auto 42px auto;
   }
   p{
     font-size: 22px;
