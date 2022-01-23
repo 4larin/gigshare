@@ -35,6 +35,7 @@ const Appbar = styled.nav`
     justify-content: space-between;
     z-index: 5;
     align-items: center;
+    height: 62px;
 .logo{
         a{
             display: flex;
@@ -59,6 +60,8 @@ const Appbar = styled.nav`
           list-style-type:none;
           justify-content: space-between;
           min-width: 600px;
+          margin: 0;
+          margin-top: 4px;
 
          a.btn{
                 color: #c7c7c7;
@@ -109,10 +112,10 @@ const Appbar = styled.nav`
 }
 
 .buttons{
+    display: flex;
     a{
         text-decoration: none;
         color: white;
-        padding:19px 35px;
         border:1px solid #b2b7bd;
         border-radius:10px;
         transition: all ease 0.2s;
@@ -127,11 +130,11 @@ const Appbar = styled.nav`
         background-color: #8bb8a2;
         padding: 20px 16px  ;
         margin-right: 16px;
-            display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    width: 20px;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+           align-content: center;
+        width: 20px;
 }
 
     }
@@ -139,7 +142,9 @@ const Appbar = styled.nav`
 
 
 .btn-primary{
-    bor
+    display: block;
+    padding:19px 35px;
+
 }
 
 `
