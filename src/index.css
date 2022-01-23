@@ -58,3 +58,8 @@ h3, p{
 area {
   cursor: default !important;
 }
+
+
+html {
+  scroll-behavior: smooth;
+}

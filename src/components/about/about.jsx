@@ -2,15 +2,35 @@ import styled from "styled-components";
 import ArrowRight from '../../assets/Arrow Right.svg'
 import GetStartedIllust from '../../assets/GetStarted.svg'
 import FooterIcon from '../../assets/footerIcon.svg'
+import { useState } from "react";
+import DropdownIcon from '../../assets/DropdownArrow.svg'
+
+export const FooterLink = (props) => {
+    return (
+        <a className="btn" href={props.link}>
+            <div>
+                <span data-link-alt={props.linkText}>{props.linkText}</span>
+            </div>
+        </a>
+    )
+}
 
 const About = () => {
+
+    let [dropdownOpened, setDropdownOpened] = useState(false)
+    const toggleDropdown = () => {
+        setDropdownOpened((prevState) => {
+            return !prevState
+        })
+    }
+
     return (
         <Section id="About">
             <div className="container">
                 <GetStarted>
                     <div><h3>Get started <br /> with our app?</h3></div>
                     <div className="GetStarted Button">
-                        <a href="#GetStarted">
+                        <a style={{ visibility: 'hidden' }} href="#GetStarted">
                             <div>
                                 <span>
                                     <img src={ArrowRight} alt="ArrowRight" />
@@ -30,21 +50,21 @@ const About = () => {
                         <div className="links__sitemap">
                             <h3>Sitemap</h3>
                             <ul>
-                                <li> <a href="#BigTransfers" >Big Transfers</a></li>
-                                <li> <a href="#Processes" >Processes</a></li>
-                                <li> <a href="#Benefits" >Benefits</a></li>
-                                <li> <a href="#Personal" >Personal</a></li>
-                                <li> <a href="#About" >About</a></li>
+                                <li> <FooterLink link="#BigTransfers" linkText="Big Transfers" >Big Transfers</FooterLink></li>
+                                <li> <FooterLink link="#Processes" linkText="Processes" >Processes</FooterLink></li>
+                                <li> <FooterLink link="#Benefits" linkText="Benefits" >Benefits</FooterLink></li>
+                                <li> <FooterLink link="#Personal" linkText="Personal" >Personal</FooterLink></li>
+                                <li> <FooterLink link="#About" linkText="About" >About</FooterLink></li>
                             </ul>
                         </div>
                         <div className="links__community">
                             <h3>Community</h3>
                             <ul>
-                                <li><a href="#Facebook">Facebook</a></li>
-                                <li><a href="#Instagram">Instagram</a></li>
-                                <li><a href="#LinkedIn">Linked In</a></li>
-                                <li><a href="#Behance">Behance</a></li>
-                                <li><a href="#Dribble">Dribble</a></li>
+                                <li><FooterLink link="#Facebook" linkText="Facebook" /></li>
+                                <li><FooterLink link="#Instagram" linkText="Instagram" /></li>
+                                <li><FooterLink link="#LinkedIn" linkText="Linked In" /></li>
+                                <li><FooterLink link="#Behance" linkText="Behance" /></li>
+                                <li><FooterLink link="#Dribble" linkText="Dribble" /></li>
                             </ul>
                         </div>
                     </div>
@@ -53,8 +73,18 @@ const About = () => {
                             <img src={FooterIcon} alt="Icon" />
                             <p>2021 Halo Lab. All rights reserved</p>
                         </div>
-                        <div>
-                            <div>English <span>Icon</span></div>
+                        <div className="dropdown" onClick={toggleDropdown}>
+                            <div>English <span>
+                                <img className={dropdownOpened ? 'opened' : ''} src={DropdownIcon} alt="Dropdown" />
+                            </span></div>
+                            <div style={{ display: dropdownOpened ? "block" : 'none' }} className="DropdownContent">
+                                <ul>
+                                    <li><span></span> English</li>
+                                    <li> Français</li>
+                                    <li> Russian</li>
+                                </ul>
+
+                            </div>
                         </div>
 
                     </div>
@@ -116,19 +146,62 @@ padding-bottom: 0;
                    padding:0 ;
                    list-style-type: none;
                    flex-wrap: wrap;
-                   max-height: 120px;
+                   max-height: 130px;
                    li{
                        margin: 10px 0;
                        padding: 0;
                        min-width: 150px;
                    }
                    a{
-                       color: #c7c7c7;
                        text-decoration: none;
                    }
                }
 
            }
+
+            a.btn{
+                color: #c7c7c7;
+                display: block;
+                width: fit-content;
+                position: relative;
+                /* overflow: hidden; */
+
+                div{
+                    width: 100%;
+                    height: 21px;
+                    overflow: hidden;
+                    span{
+                        transform: translateY(0);
+                        transition: all ease 0.2s;
+                        position: relative;
+                        display: block;
+                        &::after{
+                            content: attr(data-link-alt);
+                            position: absolute;
+                            top: -20px;
+                            left: 0;
+                        }
+
+                    }
+
+                }
+
+                &:hover{
+                    div{
+                    span{
+                        transform: translateY(20px);
+                        color: white;
+
+                    }
+
+                }
+
+                }
+
+
+                
+            }
+
         }
 
 
@@ -145,6 +218,57 @@ padding-bottom: 0;
                     margin-left: 12px;
                     color: #c7c7c7;
                     font-size: 18px;
+                }
+            }
+
+            .dropdown{
+                color: #c7c7c7;
+                position: relative;
+                cursor: pointer;
+                img{
+                    fill:  #c7c7c7;
+                    opacity: 0.5;
+                    width: 12px;
+                    margin-left: 4px;
+                    margin-bottom: 2px;
+                    transition: all 0.1s ;
+                    
+
+                }
+
+                .opened{
+                        transform: rotate(180deg)
+                }
+
+                .DropdownContent{
+                    background-color: white;
+                    padding: 16px 24px;
+                    border-radius: 16px;
+                    position: absolute;
+                    top: -160px;
+                    right: 0;
+                    ul{
+                        margin: 0;
+                        padding: 0;
+                        list-style-type: none;
+                        li{
+                            padding: 6px 8px;
+                            margin: 6px;
+                            color:rgba(10, 3, 60, 0.7) ;
+                            position: relative;
+
+                            span{
+                                display: block;
+                                width: 8px;
+                                height: 8px;
+                                background-color: #4c4e8e;
+                                position: absolute;
+                                left: -10px;
+                                border-radius: 8px;
+                                top: 9px;
+                            }
+                        }
+                    }
                 }
             }
         }

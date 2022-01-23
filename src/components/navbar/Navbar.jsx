@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Logo from '../../assets/logo.svg'
 import LogoutLogo from '../../assets/Logout button.svg'
+import { FooterLink } from '../about/about';
 
 const Navbar = () => {
     return (
@@ -13,10 +14,10 @@ const Navbar = () => {
             </div>
             <div className="links">
                 <ul>
-                    <li><a href="#BigTransfer" data-link-alt="Big Transfer"><span>Big Transfer</span></a></li>
-                    <li><a href="#Processes" data-link-alt="Processes"><span>Processes</span></a></li>
-                    <li><a href="#Benefits" data-link-alt="Benefits"><span>Benefits</span></a></li>
-                    <li><a href="#Personal" data-link-alt="Personal"><span>Personal</span></a></li>
+                    <li><FooterLink link="#BigTransfer" linkText="BigTransfer" data-link-alt="Big Transfer"></FooterLink></li>
+                    <li><FooterLink link="#Processes" linkText="Processes" data-link-alt="Processes"></FooterLink></li>
+                    <li><FooterLink link="#Benefits" linkText="Benefits" data-link-alt="Benefits"></FooterLink></li>
+                    <li><FooterLink link="#Personal" linkText="Personal" data-link-alt="Personal"></FooterLink></li>
                 </ul>
             </div>
             <div className="buttons">
@@ -59,79 +60,50 @@ const Appbar = styled.nav`
           justify-content: space-between;
           min-width: 600px;
 
-          a{
-            text-decoration:none;
-            color: #c7c7c7;
-            font-size: 18px;
-            position: relative;
-            overflow: hidden;
-            display: block;
-            text-align: center;
-            animation-duration: 1s;
-            animation-fill-mode: both;
-            
-            // text element inside
-            span {
-            display: block;
-            transition: transform 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550); } 
-            
-            // slide text from data-link-title
-            &:after {
-            content: attr(data-link-alt);
-            display: inline;
-            position: absolute;
-            transition: top 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-            top: 100%;
-            left: 0;
-            right: 0;
-            text-align: center; }
-            
-            // animation when hovered
-            &:hover {
-                
-                span {
-                transform: translateY(-100%); 
+         a.btn{
+                color: #c7c7c7;
+                display: block;
+                width: fit-content;
+                position: relative;
+                /* overflow: hidden; */
+                text-decoration: none;
+
+                div{
+                    width: 100%;
+                    height: 21px;
+                    overflow: hidden;
+                    span{
+                        transform: translateY(0);
+                        transition: all ease 0.2s;
+                        position: relative;
+                        display: block;
+                        &::after{
+                            content: attr(data-link-alt);
+                            position: absolute;
+                            top: -20px;
+                            left: 0;
+                        }
+
+                    }
+
                 }
+
+                &:hover{
+                    div{
+                    span{
+                        transform: translateY(20px);
+                        color: white;
+
+                    }
+
+                }
+
+                }
+
+
                 
-                &:after {
-                top: 0; }
-            }
-            
-        }
-
-
-
-        @keyframes rubberBand {
-            0% {
-                transform: scale3d(1, 1, 1);
             }
 
-            30% {
-                transform: scale3d(1.25, 0.75, 1);
-            }
-
-            40% {
-                transform: scale3d(0.75, 1.25, 1);
-            }
-
-            50% {
-                transform: scale3d(1.15, 0.85, 1);
-            }
-
-            65% {
-                transform: scale3d(.95, 1.05, 1);
-            }
-
-            75% {
-                transform: scale3d(1.05, .95, 1);
-            }
-
-            100% {
-                transform: scale3d(1, 1, 1);
-            }
-        }
-
-        
       }
 
 }
